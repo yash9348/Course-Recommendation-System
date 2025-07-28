@@ -1,0 +1,83 @@
+Project Title: Saarthi - AI Course Recommendation System
+
+Introduction:
+The Saarthi AI Course Recommendation System is designed to help users find the most relevant courses based on their skills, preferences, and learning goals. It leverages machine learning and natural language processing to recommend courses tailored to the user's input. The system also generates a personalized learning roadmap, guiding users from beginner to advanced levels.
+
+Methodology:
+1. Data Collection:
+   - The dataset contains information about various courses, including title, type (paid/free), description, level (beginner/intermediate/advanced), duration, skills covered, prerequisites, and course URLs.
+
+2. Data Preprocessing:
+   - Text data (skills covered) is cleaned and vectorized using TF-IDF.
+   - Categorical data (type and level) is encoded using Label Encoding.
+
+3. Model Training:
+   - A Nearest Neighbors model is trained to recommend courses based on user input.
+   - The model uses cosine similarity to find the most relevant courses.
+
+4. Personalized Roadmap:
+   - A roadmap generator prioritizes courses based on the user's input skills and recommends a sequence of beginner, intermediate, and advanced courses.
+
+5. User Interface:
+   - A Streamlit-based UI allows users to input their preferences and view recommendations.
+   - The UI displays course details, previews, and clickable links for easy navigation.
+
+Procedure:
+1. Load and preprocess the dataset.
+2. Train the Nearest Neighbors model using the preprocessed data.
+3. Save the trained model and encoders for reuse.
+4. Build a Streamlit UI to take user inputs (name, course type, level, and skills).
+5. Use the trained model to recommend courses based on user inputs.
+6. Generate a personalized roadmap using the roadmap generator.
+7. Display recommendations and roadmap in the UI with clickable course links.
+
+Step-by-Step Process:
+1. **Dataset Preparation**:
+   - Load the dataset (`courses_dataset.csv`).
+   - Preprocess the data (clean text, encode categorical variables, vectorize skills).
+
+2. **Model Training**:
+   - Train a Nearest Neighbors model using combined features (skills, type, level).
+   - Save the model and encoders for later use.
+
+3. **Roadmap Generator**:
+   - Create a function to prioritize courses based on user input skills.
+   - Sort courses by relevance and select beginner, intermediate, and advanced courses.
+
+4. **Streamlit UI**:
+   - Build a user-friendly interface to take inputs and display results.
+   - Use collapsible dropdowns for the roadmap and clickable buttons for course links.
+
+5. **Integration**:
+   - Integrate the trained model and roadmap generator into the UI.
+   - Fetch course previews using the `requests` and `BeautifulSoup` libraries.
+
+Dataset Details:
+- File: `courses_dataset.csv`
+- Columns:
+  - Title: The name of the course.
+  - Type: Whether the course is paid or free.
+  - Description: A brief description of the course.
+  - Level: The difficulty level (beginner, intermediate, advanced).
+  - Duration: The duration of the course.
+  - Skills Covered: Skills taught in the course.
+  - Prerequisites: Prerequisites for the course.
+  - URL: The link to the course.
+
+Tools and Technologies Used:
+1. Python: Programming language for building the system.
+2. Streamlit: Framework for creating the user interface.
+3. Scikit-learn: Library for machine learning and model training.
+4. Pandas: Library for data manipulation and preprocessing.
+5. BeautifulSoup: Library for fetching course previews from URLs.
+
+Libraries Used:
+1. pandas: For data manipulation and preprocessing.
+2. sklearn.feature_extraction.text (TfidfVectorizer): For vectorizing text data.
+3. sklearn.preprocessing (LabelEncoder): For encoding categorical variables.
+4. sklearn.neighbors (NearestNeighbors): For building the recommendation model.
+5. pickle: For saving and loading the trained model and encoders.
+6. streamlit: For building the interactive user interface.
+7. requests: For fetching course link previews.
+8. bs4 (BeautifulSoup): For parsing HTML content of course links.
+
