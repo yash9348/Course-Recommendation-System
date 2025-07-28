@@ -1,2 +1,2 @@
 # Course-Recommendation-System
-SAARTHI: course recommendation system
+SAARTHI: An course recommendation system
